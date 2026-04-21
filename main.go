@@ -6,6 +6,7 @@ import (
 )
 
 func boring(msg string) {
+	fmt.Println("boring was called")
 	for i := 0; ; i++ {
 		fmt.Printf("%s %d\n", msg, i)
 		time.Sleep(time.Second)
@@ -13,5 +14,8 @@ func boring(msg string) {
 }
 
 func main() {
-	boring("boring!")
+	go boring("boring!")
+	fmt.Println("I'm listening.")
+	time.Sleep(2 * time.Second)
+	fmt.Println("You're boring; I'm leaving.")
 }
