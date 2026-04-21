@@ -6,9 +6,10 @@ import (
 )
 
 func main() {
-	go fmt.Println("one")
-	go fmt.Println("two")
-	go fmt.Println("third")
-
+	for index := range 5 {
+		go func() {
+			fmt.Println(index)
+		}()
+	}
 	time.Sleep(time.Second)
 }
