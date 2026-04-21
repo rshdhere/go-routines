@@ -5,13 +5,11 @@ import (
 	"time"
 )
 
-func main() {
-	go func() {
-		for {
-			fmt.Println("running...")
-			time.Sleep(200 * time.Millisecond)
-		}
-	}()
+func run() {
+	go fmt.Println("inside fn")
+}
 
-	time.Sleep(2 * time.Second)
+func main() {
+	run()
+	time.Sleep(time.Second)
 }
