@@ -5,16 +5,14 @@ import (
 	"time"
 )
 
+func work(id int) {
+	fmt.Println(id)
+}
+
 func main() {
-	go func() {
-		time.Sleep(time.Second)
-		fmt.Println("1 sec")
-	}()
+	for i := 1; i <= 3; i++ {
+		go work(i)
+	}
 
-	go func() {
-		time.Sleep(2 * time.Second)
-		fmt.Println("2 sec")
-	}()
-
-	time.Sleep(3 * time.Second)
+	time.Sleep(time.Second)
 }
