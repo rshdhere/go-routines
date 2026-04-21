@@ -5,17 +5,11 @@ import (
 	"time"
 )
 
-func boring(msg string) {
-	fmt.Println("boring was called")
-	for i := 0; ; i++ {
-		fmt.Printf("%s %d\n", msg, i)
-		time.Sleep(time.Second)
-	}
+func sayHellow() {
+	fmt.Println("hello from the go routine")
 }
 
 func main() {
-	go boring("boring!")
-	fmt.Println("I'm listening.")
-	time.Sleep(2 * time.Second)
-	fmt.Println("You're boring; I'm leaving.")
+	go sayHellow()
+	time.Sleep(time.Second)
 }
