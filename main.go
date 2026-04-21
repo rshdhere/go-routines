@@ -5,13 +5,14 @@ import (
 	"time"
 )
 
-func main() {
-	go func() {
-		fmt.Println("outter")
-		go func() {
-			fmt.Println("inner")
-		}()
-	}()
+func heavy() {
+	for i := 0; i < 1e7; i++ {
+	}
+	fmt.Println("heavy done")
+}
 
+func main() {
+	go heavy()
+	fmt.Println("main continues")
 	time.Sleep(time.Second)
 }
