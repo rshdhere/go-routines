@@ -5,12 +5,18 @@ import (
 	"time"
 )
 
-func task() {
-	time.Sleep(500 * time.Second)
-	fmt.Println("done after delay")
-}
-
 func main() {
-	go task()
+	go func() {
+		for i := 0; i < 5; i++ {
+			fmt.Printf("A%d\n", i)
+		}
+	}()
+
+	go func() {
+		for i := 0; i < 5; i++ {
+			fmt.Printf("B%d\n", i)
+		}
+	}()
+
 	time.Sleep(time.Second)
 }
