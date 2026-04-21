@@ -5,11 +5,10 @@ import (
 	"time"
 )
 
-func run() {
-	go fmt.Println("inside fn")
-}
-
 func main() {
-	run()
+	go func() {
+		fmt.Println("anonymous fn")
+	}()
+
 	time.Sleep(time.Second)
 }
