@@ -5,11 +5,10 @@ import (
 	"time"
 )
 
-func sayHellow() {
-	fmt.Println("hello from the go routine")
-}
-
 func main() {
-	go sayHellow()
+	go fmt.Println("one")
+	go fmt.Println("two")
+	go fmt.Println("third")
+
 	time.Sleep(time.Second)
 }
