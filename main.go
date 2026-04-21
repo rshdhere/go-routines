@@ -7,8 +7,14 @@ import (
 
 func main() {
 	go func() {
-		fmt.Println("anonymous fn")
+		time.Sleep(time.Second)
+		fmt.Println("1 sec")
 	}()
 
-	time.Sleep(time.Second)
+	go func() {
+		time.Sleep(2 * time.Second)
+		fmt.Println("2 sec")
+	}()
+
+	time.Sleep(3 * time.Second)
 }
