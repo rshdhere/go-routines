@@ -1,15 +1,14 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
 
 func main() {
+	messages := make(chan string)
+
 	go func() {
-		fmt.Println("Goroutine")
+		messages <- "ping"
 	}()
 
-	fmt.Println("Main")
-	time.Sleep(time.Millisecond * 100)
+	msg := <-messages
+	fmt.Println(msg)
 }
