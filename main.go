@@ -5,11 +5,12 @@ import (
 	"time"
 )
 
+func task() {
+	time.Sleep(500 * time.Second)
+	fmt.Println("done after delay")
+}
+
 func main() {
-	for index := range 5 {
-		go func() {
-			fmt.Println(index)
-		}()
-	}
+	go task()
 	time.Sleep(time.Second)
 }
