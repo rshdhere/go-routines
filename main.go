@@ -12,3 +12,12 @@ func main() {
 	msg := <-messages
 	fmt.Println(msg)
 }
+
+func send(ch chan<- string) {
+	ch <- "send-only-channel"
+}
+
+func receive(ch <-chan string) {
+	msg := <-ch
+	fmt.Println(msg)
+}
