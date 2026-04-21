@@ -5,14 +5,12 @@ import (
 	"time"
 )
 
-func heavy() {
-	for i := 0; i < 1e7; i++ {
-	}
-	fmt.Println("heavy done")
-}
-
 func main() {
-	go heavy()
-	fmt.Println("main continues")
-	time.Sleep(time.Second)
+	for i := 0; i < 5; i++ {
+		go func(n int) {
+			time.Sleep(time.Duration(n) * 200 * time.Millisecond)
+			fmt.Println(n)
+		}(i)
+	}
+	time.Sleep(2 * time.Second)
 }
