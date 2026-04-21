@@ -6,6 +6,12 @@ import (
 )
 
 func main() {
-	go fmt.Println("Now it prints")
-	time.Sleep(time.Millisecond)
+	go func() {
+		fmt.Println("outter")
+		go func() {
+			fmt.Println("inner")
+		}()
+	}()
+
+	time.Sleep(time.Second)
 }
